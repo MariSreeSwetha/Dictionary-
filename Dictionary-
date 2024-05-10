@@ -1,0 +1,246 @@
+1.Program:
+s = input("Enter any string:")
+freq={}
+for ch in s:
+		if ch in freq:
+			freq[ch]+=1
+		else:
+			freq[ch]=1
+print ("Count of all characters is:", freq)
+
+for k, v in freq.items():
+    print(k,':',end='')
+    for i in range(0,v):
+    	print('*',end='')
+    print()
+Output:
+Enter any string:Mari Sree Swetha
+Count of all characters is: {'M': 1, 'a': 2, 'r': 2, 'i': 1, ' ': 2, 'S': 2, 'e': 3, 'w': 1, 't': 1, 'h': 1}
+M :*
+a :**
+r :**
+i :*
+  :**
+S :**
+e :***
+w :*
+t :*
+h :*
+2.Program:
+student_marks = {
+    "Swetha": [80, 75, 90],
+    "Smriti": [85, 90, 95],
+    "Billa": [95, 84, 90]
+}
+
+for student, marks in student_marks.items():
+    total_marks = sum(marks)
+    average_marks = int(total_marks / len(marks))
+    student_marks[student] = [total_marks, average_marks]
+
+topper = max(student_marks, key=lambda x: student_marks[x][1])
+
+print("The total and average marks are:")
+print("Updated student marks:")
+for student, marks in student_marks.items():
+    print(f"{student}: Total Marks - {marks[0]}, Average Marks - {marks[1]}")
+
+print(f"\nTopper of the class: {topper}")
+Output:
+The total and average marks are:
+Updated student marks:
+Swetha: Total Marks - 245, Average Marks - 81
+Smriti: Total Marks - 270, Average Marks - 90
+Billa: Total Marks - 269, Average Marks - 89
+
+Topper of the class: Smriti
+3.Program:
+portfolio = {
+    'accounts': ['SBI', 'IOB'],
+    'shares': ['HDFC', 'ICICI', 'TM', 'TCS'],
+    'ornaments': ['10 gm gold', '1 kg silver']
+}
+
+
+portfolio['MF'] = ['Reliance', 'ABSI']
+print(portfolio)
+
+portfolio['accounts'] = ['Axis', 'BOB']
+print(portfolio)
+
+
+portfolio['shares'].sort()
+print(portfolio)
+
+del portfolio['ornaments']
+print(portfolio)
+Output:
+{'accounts': ['SBI', 'IOB'], 'shares': ['HDFC', 'ICICI', 'TM', 'TCS'], 'ornaments': ['10 gm gold', '1 kg silver'], 'MF': ['Reliance', 'ABSI']}
+{'accounts': ['Axis', 'BOB'], 'shares': ['HDFC', 'ICICI', 'TM', 'TCS'], 'ornaments': ['10 gm gold', '1 kg silver'], 'MF': ['Reliance', 'ABSI']}
+{'accounts': ['Axis', 'BOB'], 'shares': ['HDFC', 'ICICI', 'TCS', 'TM'], 'ornaments': ['10 gm gold', '1 kg silver'], 'MF': ['Reliance', 'ABSI']}
+{'accounts': ['Axis', 'BOB'], 'shares': ['HDFC', 'ICICI', 'TCS', 'TM'], 'MF': ['Reliance', 'ABSI']}
+4.Program:
+# Dictionary containing grocery items and their prices
+grocery_prices = {
+    "apple": 25.50,
+    "banana": 7.0,
+    "egg": 5.50,
+    "bread": 35.00
+}
+#Dictionary with grocery items and quantity
+grocery_quantity = {
+    "apple": 3,
+    "banana": 3,
+    "egg": 5,
+    "bread": 1
+}
+
+total_bill = 0
+for item, quantity in grocery_quantity.items():
+    if item in grocery_prices:
+        total_bill += grocery_prices[item] * quantity
+print("Total bill:", total_bill)
+Output:
+Total bill: 160.0
+5.Program:
+# Given dictionary
+m = {
+    "apple": 2.50,
+    "banana": 1.20,
+    "milk": 3.00,
+    "bread": 2.00
+}
+# Fetch all keys
+keys = m.keys()
+# Fetch all values
+values = m.values()
+# Fetch key-value pairs
+items = m.items()
+
+# Print the results
+print("Keys:", keys)
+print("Values:", values)
+print("Key-Value Pairs:", items)
+Output:
+Keys: dict_keys(['apple', 'banana', 'milk', 'bread'])
+Values: dict_values([2.5, 1.2, 3.0, 2.0])
+Key-Value Pairs: dict_items([('apple', 2.5), ('banana', 1.2), ('milk', 3.0), ('bread', 2.0)])
+6.Program:
+# Dictionary containing user names and passwords
+user_credentials = {
+    "user1": "password1",
+    "user2": "password2",
+    "user3": "password3",
+    "user4": "password4",
+    "user5": "password5",
+    "user6": "password6",
+    "user7": "password7",
+    "user8": "password8",
+    "user9": "password9",
+    "user10": "password10"
+}
+
+# Receive user input for username and password
+username = input("Enter your username: ")
+password = input("Enter your password: ")
+
+# Check if the username exists and if the corresponding password matches
+if username in user_credentials and user_credentials[username] == password:
+    print("Login successful!")
+else:
+    print("Invalid username or password. Please try again.")
+Output:
+Enter your username: user9
+Enter your password: password9
+Login successful!
+7.Program:
+# Given dictionary of marks
+marks = {
+    'Subu': {'Maths': 88, 'Eng': 60, 'SSt': 95},
+    'Amol': {'Maths': 78, 'Eng': 68, 'SSt': 89},
+    'Raka': {'Maths': 56, 'Eng': 66, 'SSt': 77}
+}
+
+print("Marks obtained by Amol in English:", marks['Amol']['Eng'])
+
+marks['Raka']['Maths'] = 77
+print("Marks after updating Raka's math marks is",marks['Raka']['Maths'])
+
+sorted_marks = dict(sorted(marks.items()))
+print("\nSorted marks:")
+for name, subject_marks in sorted_marks.items():
+    print(name + ":", subject_marks)
+Output:
+Marks obtained by Amol in English: 68
+Marks after updating Raka's math marks is 77
+
+Sorted marks:
+Amol: {'Maths': 78, 'Eng': 68, 'SSt': 89}
+Raka: {'Maths': 77, 'Eng': 66, 'SSt': 77}
+Subu: {'Maths': 88, 'Eng': 60, 'SSt': 95}
+8.Program:
+ifs={
+
+    'eth0':{'IP':'1.1.1.1','Status':'up'},
+
+    'eth1':{'IP':'2.2.2.2','Status':'up'},
+
+    'Wlan0':{'IP':'3.3.3.3','Status':'down'},
+
+    'Wlan1':{'IP':'4.4.4.4','Status':'up'}
+
+    }
+
+test=input('Enter interface:')
+
+print("The status is",ifs[test]['Status'])
+
+print("The status which is up are:")
+for k,v in ifs.items():
+
+      if v['Status']=='up':
+
+       print(k,v['IP'])
+
+print('Total interfaces=',len(ifs))
+
+ifs['eth2']={'IP':'5.5.5.5','Status':'down'}
+
+ifs['wlan2']={'IP':'6.6.6.6','Status':'up'}
+
+print("Dictionary after adding 2 new entries:")
+for k,v in ifs.items():
+
+      print(k,v)
+Output:
+Enter interface:Wlan1
+The status is up
+The status which is up are:
+eth0 1.1.1.1
+eth1 2.2.2.2
+Wlan1 4.4.4.4
+Total interfaces= 4
+Dictionary after adding 2 new entries:
+eth0 {'IP': '1.1.1.1', 'Status': 'up'}
+eth1 {'IP': '2.2.2.2', 'Status': 'up'}
+Wlan0 {'IP': '3.3.3.3', 'Status': 'down'}
+Wlan1 {'IP': '4.4.4.4', 'Status': 'up'}
+eth2 {'IP': '5.5.5.5', 'Status': 'down'}
+wlan2 {'IP': '6.6.6.6', 'Status': 'up'}
+9.Program:
+marks={'Suba':88,'Amol':78,'Raka':56,'Dinesh':68,'Ranjit':88}
+l=len(marks)
+for i in range(l):
+    print("Removed name:",marks.popitem())
+    print(marks)
+Output:
+Removed name: ('Ranjit', 88)
+{'Suba': 88, 'Amol': 78, 'Raka': 56, 'Dinesh': 68}
+Removed name: ('Dinesh', 68)
+{'Suba': 88, 'Amol': 78, 'Raka': 56}
+Removed name: ('Raka', 56)
+{'Suba': 88, 'Amol': 78}
+Removed name: ('Amol', 78)
+{'Suba': 88}
+Removed name: ('Suba', 88)
+{}
